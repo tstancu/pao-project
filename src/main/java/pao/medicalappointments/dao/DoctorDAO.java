@@ -38,7 +38,7 @@ public class DoctorDAO {
                 doctors.add(doctor);
 
 
-                System.out.println("Name: " + doctor.getName() + ", Specialty: " + doctor.getSpecialty());
+//                System.out.println("Name: " + doctor.getName() + ", Specialty: " + doctor.getSpecialty());
             }
         }
 

@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="pao.view.MainController">
-    <Label text="Doctor List" />
+<?import javafx.scene.layout.Pane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="pao.view.MainController" styleClass="main-container" stylesheets="/styles.css">
+    <center>
+        <!-- Placeholder for the image -->
+        <ImageView fx:id="imageView" styleClass="image-view" preserveRatio="true" fitWidth="400" fitHeight="400"/>
+    </center>
 
-    <Button fx:id="addButton" text="Add Doctor" />
-</VBox>
+    <bottom>
+        <!-- Bar with buttons -->
+        <HBox alignment="CENTER" spacing="10" styleClass="button-bar">
+            <Pane HBox.hgrow="ALWAYS" />
+            <Button text="Make an Appointment" fx:id="makeAppointmentButton" styleClass="sketch-button" />
+            <Button text="View Doctors" fx:id="viewDoctorsButton" styleClass="sketch-button" onAction="#viewDoctorsButtonClicked"/>
+            <Pane HBox.hgrow="ALWAYS" />
+        </HBox>
+    </bottom>
+</BorderPane>
+
+
+
 
 
 

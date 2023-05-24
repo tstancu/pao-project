@@ -4,30 +4,45 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="pao.view.DoctorFormController">
-    <Label text="Doctor Form" />
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="pao.view.DoctorFormController" styleClass="doctor-form" stylesheets="/styles.css">
 
-    <HBox>
-        <Label text="ID:" />
-        <TextField fx:id="idField" />
-    </HBox>
+    <top>
+        <GridPane alignment="CENTER" hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+            </rowConstraints>
 
-    <HBox>
-        <Label text="Name:" />
-        <TextField fx:id="nameField" />
-    </HBox>
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="3" styleClass="vbox-container" />
+            <Label text="ID:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="idField" styleClass="form-textfield" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-    <HBox>
-        <Label text="Specialty:" />
-        <ComboBox fx:id="specialtyComboBox" promptText="Select Specialty" />
-    </HBox>
+            <Label text="Name:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="nameField" styleClass="form-textfield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-    <HBox spacing="10">
-        <Button text="Save" fx:id="saveButton" />
-        <Button text="Cancel" fx:id="cancelButton" />
-    </HBox>
-</VBox>
+            <Label text="Specialty:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ComboBox fx:id="specialtyComboBox" promptText="Select Specialty" styleClass="form-combobox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        </GridPane>
+    </top>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" styleClass="button-bar">
+            <Button text="Save" fx:id="saveButton" styleClass="form-button" />
+            <Button text="Cancel" fx:id="cancelButton" styleClass="form-button" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
 

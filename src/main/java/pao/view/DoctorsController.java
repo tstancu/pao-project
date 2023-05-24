@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -22,6 +23,9 @@ import pao.medicalappointments.model.SpecialtyDTO;
 import java.io.IOException;
 
 public class DoctorsController {
+
+    @FXML
+    private VBox doctorsContainer;
 
     @FXML
     private TableView<DoctorDTO> doctorTableView;
@@ -42,6 +46,16 @@ public class DoctorsController {
 
     @FXML
     public void initialize() {
+
+
+        doctorsContainer.setPrefWidth(600);
+        doctorsContainer.setPrefHeight(600);
+
+        // Set preferred dimensions for the doctorTableView
+
+        doctorTableView.setPrefHeight(500);
+
+
         doctorDAO = DoctorDAO.getInstance();
 
         setupTableView();
@@ -65,6 +79,25 @@ public class DoctorsController {
     }
 
     @FXML
+    private void goToMainScene() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/pao/main-test.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) doctorsContainer.getScene().getWindow();
+
+        double width = currentStage.getWidth();
+        double height = currentStage.getHeight();
+
+        Stage mainStage = new Stage();
+        mainStage.setScene(scene);
+        mainStage.setWidth(width);
+        mainStage.setHeight(height);
+
+        mainStage.show();
+    }
+
+    @FXML
     private void openDoctorForm() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/pao/doctor-form.fxml"));
@@ -73,41 +106,34 @@ public class DoctorsController {
             DoctorFormController doctorFormController = fxmlLoader.getController();
             doctorFormController.initialize(this);
 
-            Stage stage = new Stage();
-            stage.setTitle("Add Doctor");
-
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-//            stage.sizeToScene();
-
-            // move it a bit to the right from the parent stage
             Stage mainStage = (Stage) addButton.getScene().getWindow();
-
+            double mainStageX = mainStage.getX();
+            double mainStageY = mainStage.getY();
             double mainStageWidth = mainStage.getWidth();
             double mainStageHeight = mainStage.getHeight();
-            System.out.println("mainStageWidth: " + mainStageWidth + " / mainStageHeight: " + mainStageHeight);
-//            double popUpWidth = 400; // Adjust the width as needed
-//            double popUpHeight = 200; // Adjust the height as needed
-//
-//            double popUpX = mainStage.getX() + (mainStageWidth - popUpWidth) / 2; // Center horizontally relative to the main stage
-//            double popUpY = mainStage.getY() + (mainStageHeight - popUpHeight) / 2; // Center vertically relative to the main stage
-//
-//            stage.setX(popUpX);
-//            stage.setY(popUpY);
 
+            Stage stage = new Stage();
+            stage.setTitle("Add Doctor");
             stage.initModality(Modality.APPLICATION_MODAL);
 
-            // Set the size of the pop-up window's scene
-//            scene.setRoot(root);
-//            scene.setRoot(new Group(root));
-//            scene.getWindow().setWidth(popUpWidth);
-//            scene.getWindow().setHeight(popUpHeight);
+            double formWidth = 400; // Adjust the width as needed
+            double formHeight = mainStageHeight / 2;
 
+            double formX = mainStageX + mainStageWidth + 10; // Position it to the right of the main stage with a 10 pixel gap
+            double formY = mainStageY;
 
+            stage.setX(formX);
+            stage.setY(formY);
+            stage.setWidth(formWidth);
+            stage.setHeight(formHeight);
+
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
             stage.showAndWait();
 
-            updateDoctorTable(); // Refresh the table after closing the form
+            updateDoctorTable();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

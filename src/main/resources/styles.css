@@ -1,0 +1,95 @@
+/* styles.css */
+
+.doctor-form {
+    -fx-padding: 20px;
+}
+
+.vbox-container {
+    -fx-pref-height: 20px;
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.form-textfield {
+    -fx-pref-width: 200px;
+}
+
+.form-combobox {
+    -fx-pref-width: 200px;
+}
+
+.form-button-bar {
+    -fx-padding: 10px;
+    -fx-alignment: center;
+    -fx-background-color: #F5F5F5;
+}
+
+.form-button {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.form-button:hover {
+    -fx-background-color: #555555;
+}
+
+.form-button:pressed {
+    -fx-background-color: #222222;
+}
+
+
+.doctors-container {
+    -fx-alignment: center;
+    /*-fx-pref-width: 600px;*/
+    /*-fx-pref-height: 600px;*/
+}
+
+.doctors-column {
+    /*-fx-background-color: #333333;*/
+    /*-fx-text-fill: #FFFFFF;*/
+    -fx-font-size: 16px;
+}
+
+/* Update the main container style to match the main scene */
+.main-container {
+    -fx-alignment: center;
+    /*-fx-background-color: #FFFFFF;*/
+}
+
+.image-view {
+    fit-width: 400;
+    fit-height: 340;
+    /*-fx-background-color: transparent;*/
+}
+
+.button-bar {
+    -fx-alignment: center;
+    -fx-padding: 20px;
+    -fx-background-color: transparent;
+}
+
+.sketch-button {
+    -fx-background-color: #F5F5F5;
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px 16px;
+    -fx-font-family: "Lucida Console";
+}
+
+.sketch-button:hover {
+    -fx-background-color: #EEEEEE;
+}
+
+.sketch-button:pressed {
+    -fx-background-color: #DDDDDD;
+}

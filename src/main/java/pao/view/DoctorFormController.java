@@ -54,8 +54,6 @@ public class DoctorFormController {
         String name = nameField.getText();
         SpecialtyDTO specialty = specialtyComboBox.getValue();
 
-//        System.out.println(specialty.getName());
-
         if (idText.isEmpty() || name.isEmpty() || specialty == null) {
             showErrorMessage("Please fill in all fields.");
             return;

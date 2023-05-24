@@ -79,7 +79,7 @@ public class SpecialtyDAO {
                 SpecialtyDTO specialty = new SpecialtyDTO(id, name);
                 specialties.add(specialty);
 
-                System.out.println("Specialty: " + data[1]);
+//                System.out.println("Specialty: " + data[1]);
             }
 
 
