@@ -1,16 +1,19 @@
 package pao.view;
 
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import pao.medicalappointments.dao.SpecialtyDAO;
+import pao.medicalappointments.model.SpecialtyDTO;
 
 public class AppointmentsController {
     public TextField patientNameField;
-    public ComboBox specialtyComboBox;
+    @FXML
+    private ComboBox<SpecialtyDTO> specialtyComboBox;
     public DatePicker datePicker;
 
     @FXML
@@ -19,11 +22,27 @@ public class AppointmentsController {
     @FXML
     private Button cancelButton;
 
-    public void createAppointment(ActionEvent actionEvent) {
+    private SpecialtyDAO specialtyDAO;
+
+    public void initialize() {
+        specialtyDAO = SpecialtyDAO.getInstance();
+
+        initializeSpecialtyComboBox();
+
+        createButton.setOnAction(event -> createAppointment());
+        cancelButton.setOnAction(event -> cancelAppointment());
+    }
+
+    private void initializeSpecialtyComboBox() {
+        specialtyComboBox.setItems(FXCollections.observableArrayList(specialtyDAO.getAllSpecialties()));
+        specialtyComboBox.setConverter(new SpecialtyStringConverter());
+    }
+
+    public void createAppointment() {
 
     }
 
-    public void cancelAppointment(ActionEvent actionEvent) {
+    public void cancelAppointment() {
 
         patientNameField.clear();
         specialtyComboBox.getSelectionModel().clearSelection();

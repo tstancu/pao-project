@@ -45,6 +45,9 @@ public class MainController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/pao/appointments.fxml"));
         Parent root = fxmlLoader.load();
 
+        AppointmentsController appointmentsController = fxmlLoader.getController();
+        appointmentsController.initialize();
+
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
