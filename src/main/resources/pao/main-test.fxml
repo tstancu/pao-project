@@ -15,7 +15,7 @@
         <!-- Bar with buttons -->
         <HBox alignment="CENTER" spacing="10" styleClass="button-bar">
             <Pane HBox.hgrow="ALWAYS" />
-            <Button text="Make an Appointment" fx:id="makeAppointmentButton" styleClass="sketch-button" />
+            <Button text="Make an Appointment" fx:id="makeAppointmentButton" styleClass="sketch-button" onAction="#handleMakeAppointment"/>
             <Button text="View Doctors" fx:id="viewDoctorsButton" styleClass="sketch-button" onAction="#viewDoctorsButtonClicked"/>
             <Pane HBox.hgrow="ALWAYS" />
         </HBox>

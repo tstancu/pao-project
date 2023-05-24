@@ -40,4 +40,18 @@ public class MainController {
         primaryStage.show();
     }
 
+    @FXML
+    private void handleMakeAppointment(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/pao/appointments.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        // Close the main screen if needed
+//        Stage mainStage = (Stage) makeAppointmentButton.getScene().getWindow();
+//        mainStage.close();
+    }
+
 }

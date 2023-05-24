@@ -116,10 +116,10 @@ public class DoctorsController {
             stage.setTitle("Add Doctor");
             stage.initModality(Modality.APPLICATION_MODAL);
 
-            double formWidth = 400; // Adjust the width as needed
+            double formWidth = 400;
             double formHeight = mainStageHeight / 2;
 
-            double formX = mainStageX + mainStageWidth + 10; // Position it to the right of the main stage with a 10 pixel gap
+            double formX = mainStageX + mainStageWidth + 10;
             double formY = mainStageY;
 
             stage.setX(formX);
