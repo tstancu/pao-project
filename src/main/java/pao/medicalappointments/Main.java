@@ -14,7 +14,6 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 600, 600);
         stage.setTitle("MedPoint");
         stage.setScene(scene);
-        scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
         stage.show();
     }
 
